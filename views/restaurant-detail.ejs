@@ -1,0 +1,24 @@
+<%- include("includes/head.ejs") %>
+<body>
+  <%- include("includes/navigation.ejs") %>
+  <form
+    class="flex card"
+    action="/restaurants/<%= restaurant._id %>/menus"
+    method="post"
+  >
+    <h1 class="form_title">Kreirajte novi digitalni meni</h1>
+    <input type="text" name="title" placeholder="Naziv menija" />
+    <button type="submit">Kreiraj meni</button>
+  </form>
+
+  <div class="restaurant_container">
+    <% if(menus.length === 0) { %>
+    <h3>Niste napravili meni</h3>
+    <% } else {%>
+    <ul class="flex">
+      <% for(const menu of menus) {%> <%- include("includes/menu.ejs",
+      {menu,restaurant}) %> <%} %>
+    </ul>
+    <% } %>
+  </div>
+</body>

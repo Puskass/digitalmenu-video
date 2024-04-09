@@ -1,0 +1,30 @@
+<%- include("includes/head.ejs") %>
+  <body>
+    <%- include("includes/navigation.ejs") %>
+    <form class="flex card" action="/restaurants/create" method="post">
+      <h1 class="form_title">Kreirajte novi digitalni meni</h1>
+      <input type="text" name="name" placeholder="Naziv ugostiteljskog objekta" />
+      <input type="text" name="city" placeholder="Grad" />
+      <input type="text" name="location" placeholder="Lokacija" />
+      <div class="margin-top">
+        <select name="country">
+          <% for(const country of countries){
+            %>
+            <option value="<%=country%>"> <%=country%> </option>
+            <%
+          } %>
+        </select>
+      </div>
+      <div>
+        <select name="currency">
+          <% for(const valute of currency){
+            %>
+            <option value="<%=valute%>"> <%=valute%> </option>
+            <%
+          } %>
+        </select>
+      </div>
+      <button type="submit">Kreiraj restoran</button>
+    </form>
+  </body>
+</html>

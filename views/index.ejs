@@ -1,0 +1,30 @@
+<%- include("includes/head.ejs") %>
+<body>
+    <%- include("includes/navigation.ejs") %>
+    <div class="container">
+
+        
+        <div class="card width_33">
+            <h1 class="card_title">Lista restorana</h1>
+            <p class="card_text">Kliknite da napravite novi restoran</p>
+            <a href="/restaurants/create">
+                <button>Napravi restoran</button>
+            </a>
+        </div>
+        <div class="restaurant_container">
+            <% if(restaurants.length === 0) {
+                %> <h3>Niste napravili restoran</h3>
+                <% } else {%>
+                    <ul 
+                    class="flex"
+                    >
+                        <% for(const restaurant of restaurants) {%>
+                            <%- include("includes/restaurant.ejs", {restaurant}) %>
+                        <%} %>
+                    </ul>
+                <% } %>
+        </div> 
+    </div>
+
+</body>
+</html>

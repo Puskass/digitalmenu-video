@@ -1,0 +1,28 @@
+<%- include("includes/head.ejs") %>
+<body>
+  <%- include("includes/navigation.ejs") %>
+  <h1><%= menu.title %></h1>
+  <form
+    class="flex card"
+    action="/restaurants/<%= restaurant._id %>/menus/<%= menu._id %>/sections"
+    method="post"
+  >
+    <h1 class="form_title">Kreirajte novu sekciju u vašem meniju</h1>
+    <input type="text" name="sectionName" placeholder="Naziv sekcije" />
+    <input type="text" name="sectionImgURL" placeholder="Url slike" />
+    <button type="submit">Kreiraj sekciju</button>
+  </form>
+
+  <div class="restaurant_container">
+    <% if(sections.length === 0) { %>
+    <h3>Niste napravili niti jednu sekciju</h3>
+    <% } else {%>
+    <ul class="flex">
+      <% for(const section of sections) {%>
+        <%- include("includes/section.ejs", { restaurant, menu, section }) %>
+      <% } %>
+    </ul>
+    <% } %>
+  </div>
+</body>
+</html>

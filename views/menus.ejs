@@ -1,0 +1,16 @@
+<%- include("includes/head.ejs") %>
+<body>
+    <%- include("includes/navigation.ejs") %>
+    <div class="container">
+
+        <div class="card width_33">
+            <h1 class="card_title">Kreirajte novi digitalni meni</h1>
+            <p class="card_text">Možete započeti tako što ćete kreirati novi digitalni meni. Nakon toga nastavite sa dodavanjem jela i pića koje vaš digitalni meni pruža i kreirajte grupe kako biste ih grupisali.</p>
+            <a href="/restaurants/<%= restaurant._id %>/digitalmenus/create">
+                <button>Kreiraj digitalni meni</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
